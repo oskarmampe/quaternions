@@ -4,21 +4,74 @@
 
 \begin{document}
 
+An artist has given you two keyframe rotation matrices of an object.  At time step 0, the artist wants the object rotated by 45o CCW around vector (2,1,4) and at time step 100, the object should be rotated by 123 o CW around vector (0,1,1).
+Use quaternions to determine the axis and angle of rotation required to achieve this rotation in 100 steps.  Show all work.
+
+
+
 Taking the vector $\vec{v} = (2,1,4)$ and angle $\theta_0 = 22.5$.
 \begin{align*}
 q_0 &= (cos(\theta_0), sin(\theta_0) \times \vec{|v|}))\\[1em]
 ||\vec{v}|| &= \sqrt{2^2 + 1^ 2 + 4^2}
-= \sqrt{2} 
-= 1.41421 \; \; 5 \text{.d.p}\\[1em]
+= \sqrt{21} 
+= 4.58258 \; \; 5 \text{.d.p}\\[1em]
 %
 |\vec{v}| &= 
 \frac{\vec{v}}{||\vec{v}||} = 
-\frac{(2, 1, 4)}{1.41421 }
+\frac{(2, 1, 4)}{4.58258 }
 = (0.43644, 0.21822, 0.87287)\\[1em]
 %
 cos(\theta_0) &= 0.92388\\[1em]
 sin(\theta_0) &= 0.38268\\[1em]
-q_0 &= (0.92388,0.38268 \times 0.43644)
+q_0 &= (0.92388,0.38268 \times 0.43644, 0.38268 \times 0.21822, 0.38268 \times 0.87287)\\[1em]
+q_0 &= (0.92388, 0.16702, 0.08351, 0.33403)\\[1em]
 \end{align*}
 
+Taking the vector $\vec{w} = (0,1,1)$ and angle $\theta_{100} = -61.5$.
+
+\begin{align*}
+q_{100} &= (cos(\theta_{100}), sin(\theta_{100}) \times \vec{|w|}))\\[1em]
+||w|| &= \sqrt{0^2 + 1^2 + 1^2} = \sqrt{2} = 1.41421\\[1em]
+|w| &= \frac{|w|}{||w||} = \frac{(0,1,1)}{1.41421} = (0, 0.70711, 0.70711)\\[1em]
+\\[1em]
+cos(\theta_{100}) &= 0.47716\\[1em]
+sin(\theta_{100}) &= -0.87882\\[1em]
+q_{100} &= (0.47716, 0, -0.87882 \times 0.70711, -0.87882 \times 0.70711)\\[1em]
+q_{100} &= (0.47716, 0, -0.62142, -0.62142)\\[1em]
+\end{align*}
+
+\begin{align*}
+q_0^* &= 0.92388 - 0.16702i - 0.08351j - 0.33403k\\[1em]
+q_{100} &= 0.47716 + 0i - 0.62142j - 0.62142k\\[1em]
+q_{\Delta} &= q_0^* \times q_{100}\\[1em]
+q_{\Delta} &= 0.44084 + 0i - 0.57412j - 0.57412k\\
+ &- 0.07970i - 0i^2 + 0.10379ij + 0.10379ik\\
+ &- 0.03985j - 0ji + 0.05189j^2 + 0.05189jk\\
+ &- 0.15939k - 0ki + 0.20757kj + 0.20757k^2\\[1em]
+ %
+ &= 0.44084 - 0.57412j - 0.57412k - 0.07970i\\
+ &+ 0.10379k - 0.10379j - 0.03985j - 0.05189\\
+ &+ 0.05189i - 0.15939k - 0.20757i - 0.20757\\[1em]
+q_{\Delta} &=0.18138 - 0.23538i - 0.71776j - 0.62972k\\[1em]
+\end{align*}
+
+\begin{align*}
+(q_{\delta})^{100} &= q_{\Delta}\\[1em]
+\theta_{\delta} &= \frac{\theta_{\Delta}}{100}\\[1em]
+\theta_{\Delta} &= arccos(0.18138) = 79.54985\\[1em]
+\theta_{\delta} &= 0.79550\\
+\end{align*}
+
+\begin{align*}
+sin&(79.54985) = 0.98341\\[1em]
+\vec{v} &=  (\frac{0.23538}{0.98341}, \frac{0.71776}{0.98341}, \frac{0.62972}{0.98341})\\
+\vec{v} &= (0.23935, 0.72987, 0.64034)
+\end{align*}
+
+\begin{align*}
+cos&(0.79550) = 0.99990\\[1em]
+sin&(0.79550) = 0.01388\\[1em]
+\vec{v} &= (0.99990, 0.01388 \times 0.23935, 0.01388 \times 0.72987, 0.01388 \times 0.64034)\\[1em]
+\vec{v} &= (0.99990, 0.00332, 0.01013, 0.00889)\\
+\end{align*}
 \end{document}
