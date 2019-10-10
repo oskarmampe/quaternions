@@ -20,7 +20,7 @@ Use quaternions to determine the axis and angle of rotation required to achieve 
 
 
 
-Taking the vector $\vec{v} = (2,1,4)$ and angle $\theta_0 = 22.5$.
+A vector $\vec{v} = (2,1,4)$ is formed using the information given above. Also, the angle $\ang{45}$ CCW becomes $\theta_0 = \frac{45}{2} = 22.5$. 
 \begin{align*}
 q_0 &= (cos(\theta_0), sin(\theta_0) \times \vec{|v|}))\\[1em]
 ||\vec{v}|| &= \sqrt{2^2 + 1^ 2 + 4^2}
@@ -38,7 +38,7 @@ q_0 &= (0.92388,0.38268 \times 0.43644, 0.38268 \times 0.21822, 0.38268 \times 0
 q_0 &= 0.92388 + 0.16702i + 0.08351j + 0.33403k\\[1em]
 \end{align*}
 
-Taking the vector $\vec{w} = (0,1,1)$ and angle $\theta_{100} = -61.5$.
+A vector $\vec{w} = (0,1,1)$ is formed using the information given above. Also, the angle $\ang{123}$ CW becomes $\theta_{100} = -\frac{123}{2} = -61.5$.
 
 \begin{align*}
 q_{100} &= (cos(\theta_{100}), sin(\theta_{100}) \times \vec{|w|}))\\[1em]
@@ -51,7 +51,7 @@ q_{100} &= (0.47716, 0, -0.87882 \times 0.70711, -0.87882 \times 0.70711)\\[1em]
 q_{100} &= 0.47716 + 0i -0.62142j -0.62142k\\[1em]
 \end{align*}
 
-Next, to find the quaternion required $q_{\delta}$, the quaternion $q_{\Delta}$ needs to be calculated by multiplying quaternions $q_{100}$ and the inverse of$q_{0}$. Since $q_{0}$ is a unit quaternion, its magnitude is $1$, so only taking the conjugate $q^*_0$ is required.
+Next, to find the quaternion required $q_{\delta}$, the quaternion $q_{\Delta}$ needs to be calculated by multiplying quaternions $q_{100}$ and the inverse of $q_{0}$. Since $q_{0}$ is a unit quaternion, its magnitude is $1$, so only taking the conjugate $q^*_0$ is required, as $q^{-1}_0 = \frac{q^*_0}{||q_0||} = \frac{q^*_0}{1} = q^*_0$.
 
 \begin{align*}
 q_0^* &= 0.92388 - 0.16702i - 0.08351j - 0.33403k\\[1em]
@@ -68,7 +68,7 @@ q_{\Delta} &= 0.44084 + 0i - 0.57412j - 0.57412k\\
 q_{\Delta} &=0.18138 - 0.23538i - 0.71776j - 0.62972k\\[1em]
 \end{align*}
 
-Now that $q_{\Delta}$ is found, $\theta_{\Delta}$ and $\vec{v}$ can be found. Then the quaternion $q_{\delta}$ can be formed by using $\frac{\theta_{\Delta}}{100}$ and $\vec{v}$.
+Now that $q_{\Delta}$ is found, $\theta_{\Delta}$ and $\vec{v}_{\Delta}$ can be found. Then the quaternion $q_{\delta}$ can be formed by using $\frac{\theta_{\Delta}}{100}$ and $\vec{v}_{\Delta}$.
 \begin{align*}
 (q_{\delta})^{100} &= q_{\Delta}\\[1em]
 \theta_{\delta} &= \frac{\theta_{\Delta}}{100}\\[1em]
