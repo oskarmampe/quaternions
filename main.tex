@@ -5,7 +5,7 @@
 
 \author{Oskar Mampe}
 \title{Quaternions}
-\date{9th October 2019}
+\date{\today}
 
 \begin{document}
 
@@ -42,8 +42,8 @@ A vector $\vec{w} = (0,1,1)$ is formed using the information given above. Also, 
 
 \begin{align*}
 q_{100} &= (cos(\theta_{100}), sin(\theta_{100}) \times \vec{|w|}))\\[1em]
-||w|| &= \sqrt{0^2 + 1^2 + 1^2} = \sqrt{2} = 1.41421\\[1em]
-|w| &= \frac{|w|}{||w||} = \frac{(0,1,1)}{1.41421} = (0, 0.70711, 0.70711)\\[1em]
+||\vec{w}|| &= \sqrt{0^2 + 1^2 + 1^2} = \sqrt{2} = 1.41421\\[1em]
+|\vec{w}| &= \frac{\vec{w}}{||\vec{w}||} = \frac{(0,1,1)}{1.41421} = (0, 0.70711, 0.70711)\\[1em]
 \\[1em]
 cos&(\theta_{100}) = 0.47716\\[1em]
 sin&(\theta_{100}) = -0.87882\\[1em]
@@ -51,7 +51,7 @@ q_{100} &= (0.47716, 0, -0.87882 \times 0.70711, -0.87882 \times 0.70711)\\[1em]
 q_{100} &= 0.47716 + 0i -0.62142j -0.62142k\\[1em]
 \end{align*}
 
-Next, to find the quaternion required $q_{\delta}$, the quaternion $q_{\Delta}$ needs to be calculated by multiplying quaternions $q_{100}$ and the inverse of $q_{0}$. Since $q_{0}$ is a unit quaternion, its magnitude is $1$, so only taking the conjugate $q^*_0$ is required, as $q^{-1}_0 = \frac{q^*_0}{||q_0||} = \frac{q^*_0}{1} = q^*_0$.
+Next, to find the quaternion required $q_{\delta}$, the quaternion $q_{\Delta}$ needs to be calculated by multiplying quaternions $q_{100}$ and the inverse of $q_{0}$. This is because $q_{100}pq^{-1}_{100} = q_{\Delta}(q_{0}pq^{-1}_{0})q_{\Delta}^{-1}$. This can be simplified to $q_{\Delta}q_0 = q_{100}$, therefore $q_{\Delta} = q_{100}q^{-1}$. Since $q_{0}$ is a unit quaternion, its magnitude is $1$, so only taking the conjugate $q^*_0$ is required, as $q^{-1}_0 = \frac{q^*_0}{||q_0||} = \frac{q^*_0}{1} = q^*_0$.
 
 \begin{align*}
 q_0^* &= 0.92388 - 0.16702i - 0.08351j - 0.33403k\\[1em]
